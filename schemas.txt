@@ -1,0 +1,41 @@
+CREATE TABLE `onlinefurnitureshop`.`productdetails` (
+  `prod_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `prod_name` VARCHAR(200),
+  `prod_category` VARCHAR(200),
+  `prod_description` VARCHAR(200),
+  `prod_price` INTEGER UNSIGNED,
+  `prod_availabilityInStock` INTEGER UNSIGNED NOT NULL,
+  `prod_ImageLocation` VARCHAR(200),
+  PRIMARY KEY (`prod_id`)
+);
+
+CREATE TABLE `onlinefurnitureshop`.`customertable` (
+  `cust_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cust_name` VARCHAR(200),
+  `cust_mobile` VARCHAR(10),
+  `cust_email` VARCHAR(200),
+  `cust_password` VARCHAR(200),
+  `cust_address` VARCHAR(200),
+  PRIMARY KEY (`cust_id`)
+);
+
+CREATE TABLE `onlinefurnitureshop`.`cartorfavorite` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cust_id` INTEGER UNSIGNED NOT NULL,
+  `prod_id` INTEGER UNSIGNED NOT NULL,
+  `quantity` INTEGER UNSIGNED NOT NULL,
+  `cartorfavorite` INTEGER UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`)
+   FOREIGN KEY (`cust_id`) REFERENCES customertable(cust_id),
+FOREIGN KEY (`prod_id`) REFERENCES productdetails(prod_id)
+);
+
+CREATE TABLE `onlinefurnitureshop`.`orderinfo` (
+  `order_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cust_id` INTEGER UNSIGNED NOT NULL,
+  `prod_id` INTEGER UNSIGNED NOT NULL,
+  `quantity` INTEGER UNSIGNED NOT NULL,
+  PRIMARY KEY (`order_id`),
+ FOREIGN KEY (`cust_id`) REFERENCES customertable(cust_id),
+FOREIGN KEY (`prod_id`) REFERENCES productdetails(prod_id)
+);

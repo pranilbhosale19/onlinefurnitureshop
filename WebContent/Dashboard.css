@@ -1,0 +1,35 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#heading {
+    text-align: center;
+    margin: 10px;
+}
+#dashboard {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 5%;
+    padding: 20px; 
+    vertical-align:middle;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    font-size: 20px;
+    padding: 14px 20px;
+    margin: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color:blueviolet;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+}
